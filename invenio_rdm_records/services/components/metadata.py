@@ -21,7 +21,7 @@ class MetadataComponent(ServiceComponent):
     field = "metadata"
     new_version_skip_fields = ["publication_date", "version"]
     new_version_generated_fields = {
-        "publication_date": lambda draft, record: datetime.today().isoformat(),
+        "publication_date": lambda draft, record: datetime.today(timezone.utc).isoformat(),
     }
 
     def create(self, identity, data=None, record=None, **kwargs):
